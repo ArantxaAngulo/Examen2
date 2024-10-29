@@ -342,17 +342,27 @@ int num;
 char password[5];
 int flag = 0;
 
-while (fread(&num, size(int), 1, file) == 1){
-  if( num = 123456){
+while (fread(&num, sizeof(int), 1, file) == 1){
+  if( num == 123456){
     int passwordNum;
-    fread(passwordNum, sizeof(int), 1, file);
-    fread(passwordNum, sizeof(char), 4, file);
-    password[4] = '\0';
-    printf("Password: %d%s\n", passwordNum, password);
-    flag = 1;
-    break;
+
+    if (fread(&passwordNum, sizeof(int), 1, file) != 1) {
+      printf("Failed to read password number.\n");
+      break; 
+    }   
+    if (fread(password, sizeof(char), 4, file) != 4) {
+      printf("Failed to read password characters.\n");
+      break; 
+    }
+    
+    password[4] = '\0'; 
+        
+    printf("Password: %04d%s\n", passwordNum, password);
+    flag = 1; 
+    break; 
+    }
   }
-}
+
 fclose(file);
  /* ----------  FIN RESPUESTA:  --------------- */
   return 0;
