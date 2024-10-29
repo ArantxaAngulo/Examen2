@@ -235,7 +235,17 @@ lista[1] = L2;
 lista[2] = LD1;
 lista[3] = LD2;
 
-printlist(lista);
+printf("Lista 1:");
+printlist(lista[0]);
+
+printf("\nLista 2:");
+printlist(lista[1]);
+
+printf("\nLista Doble 1:");
+printlist(lista[2]);
+
+printf("\nLista Doble 2:");
+printlist(lista[3]);
 
 free(lista);
 
@@ -376,10 +386,10 @@ int main()
   printf("\n=== E03: Arreglo de listas\n");
   ex03();
   printf("\n=== E04: Destinos \n");
-  //ex04();
+  ex04();
   printf("\n=== E05: Password \n");
   //ex05();
   printf("\n=== E06: Reverse \n");
-  //ex06();
+  ex06();
   return 0;
 }
