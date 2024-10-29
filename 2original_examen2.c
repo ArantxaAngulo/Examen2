@@ -125,7 +125,8 @@ int ex01()
   /* NO TOCAR */
 
 /* ----------  INICIO RESPUESTA:  --------------- */
-L1 =
+L1 = cambiarAPrimero(L1);
+L2 = cambiarAPrimero(L2);
 
 /* ----------  FIN RESPUESTA:  --------------- */
   
@@ -163,7 +164,22 @@ L1 =
 */
 
 /* ----------  INICIO RESPUESTA:  --------------- */
+void insertMiddle(node * primero, node * nuevoNodo){
+  if(!primero) return;
 
+  node * slow = primero;
+  node * fast = primero;
+
+  while(fast && fast->next){
+    slow = slow->next;
+    fast = fast->next->next;
+  }
+
+  nuevoNodo->next = slow;
+  nuevoNodo->prev = slow->prev;
+  if(slow->prev) slow->prev->next = nuevoNodo;
+  slow->prev = nuevoNodo;
+}
 /* ----------  FIN RESPUESTA:  --------------- */
 
 int ex02()
