@@ -229,6 +229,16 @@ int ex02()
 int ex03()
 {
   /* ----------  INICIO DE RESPUESTA:  --------------- */
+node **lista = (node**)malloc(6 * sizeof(node*));
+lista[0] = L1;
+lista[1] = L2;
+lista[2] = LD1;
+lista[3] = LD2;
+
+printlist(lista);
+
+free(lista);
+
 
   /* ----------  FIN DE RESPUESTA:  --------------- */
   return 0;
@@ -335,9 +345,9 @@ int main()
   printf("=== E01: Mandar al inicio\n");
   ex01();
   printf("\n=== E02: Ingresar nodo a la mitad\n");
-  //ex02();
+  ex02();
   printf("\n=== E03: Arreglo de listas\n");
-  //ex03();
+  ex03();
   printf("\n=== E04: Destinos \n");
   //ex04();
   printf("\n=== E05: Password \n");
