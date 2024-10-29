@@ -276,7 +276,34 @@ free(lista);
 int ex04()
 {
 /* ----------  INICIO RESPUESTA:  --------------- */
+  FILE *file = fopen("destinos.txt", "r+");
   
+  int numRegistros;
+  fscanf(file, "%d", &numRegistros);
+
+  char ** ciudades = (char**)malloc(numRegistros * sizeof(char*));
+  int * costos = (int*)malloc(numRegistros * sizeof(int));
+
+
+for(int i = 0; i < numRegistros; i++){
+  ciudades[i]= (char*)malloc(50 * sizeof(char));
+  fscanf(file, "%s $%d", ciudades[i], &costos[i]);
+}
+
+  printf("Ciudades y costos:\n");
+  for (int i = 0; i < numRegistros; i++) {
+    printf("%s: $%d\n", ciudades[i], costos[i]);
+  }
+
+  fseek(file, 0, SEEK_END);
+  fprintf(file, "\n%s\n", alumno);
+
+ for(int i = 0; i < numRegistros; i++){
+  free(ciudades[i]);
+ }
+ free(ciudades);
+ free(costos);
+ fclose(file);
 /* ----------  FIN RESPUESTA:  --------------- */
   return 0;
 }
