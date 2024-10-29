@@ -336,6 +336,7 @@ for(int i = 0; i < numRegistros; i++){
 int ex05()
 {
   /* ----------  INICIO RESPUESTA:  --------------- */
+FILE *file = fopen("password.data", "rb");
 
  /* ----------  FIN RESPUESTA:  --------------- */
   return 0;
@@ -361,17 +362,20 @@ int ex05()
   */
 
 /* ----------  INICIO RESPUESTA:  --------------- */
-node * reverseList(node * primero){
-  node * actual = primero;
-  node * cubeta = NULL;
+void * reverse(char * str){
+  int izquierda = 0;
+  int derecha = strlen(str) - 1;
+  char cubeta;
 
-  while(actual !=NULL){
-    cubeta = actual->prev;
-    actual->prev = actual->next;
-    actual->next = cubeta;
-    actual = actual ->prev;
+  while(izquierda < derecha){
+    cubeta = str[izquierda];
+    str[izquierda] = str[derecha];
+    str[derecha] = cubeta;
+
+    izquierda++;
+    derecha--;
   }
- 
+
 }
 
 /* ----------  FIN RESPUESTA:  --------------- */
@@ -381,7 +385,8 @@ void ex06()
   char prueba[10] = "ITESO";
   printf("%s\n", prueba); //Debe imprimir "ITESO"
   /* ----------  INICIO RESPUESTA:  --------------- */
-  //Llama tu función aquí.
+  printf("Inverso:");
+  reverse(prueba);
 
   /* ----------  FIN RESPUESTA:  --------------- */
   printf("%s\n", prueba); //Debe imprimir "OSETI"
