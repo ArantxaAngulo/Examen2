@@ -338,6 +338,22 @@ int ex05()
   /* ----------  INICIO RESPUESTA:  --------------- */
 FILE *file = fopen("password.data", "rb");
 
+int num;
+char password[5];
+int flag = 0;
+
+while (fread(&num, size(int), 1, file) == 1){
+  if( num = 123456){
+    int passwordNum;
+    fread(passwordNum, sizeof(int), 1, file);
+    fread(passwordNum, sizeof(char), 4, file);
+    password[4] = '\0';
+    printf("Password: %d%s\n", passwordNum, password);
+    flag = 1;
+    break;
+  }
+}
+fclose(file);
  /* ----------  FIN RESPUESTA:  --------------- */
   return 0;
 }
@@ -404,7 +420,7 @@ int main()
   printf("\n=== E04: Destinos \n");
   ex04();
   printf("\n=== E05: Password \n");
-  //ex05();
+  ex05();
   printf("\n=== E06: Reverse \n");
   ex06();
   return 0;
