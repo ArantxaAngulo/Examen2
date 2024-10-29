@@ -361,7 +361,18 @@ int ex05()
   */
 
 /* ----------  INICIO RESPUESTA:  --------------- */
-//Agrega aquí tus estructuras, funciones del Stack, y función "reverse".
+node * reverseList(node * primero){
+  node * actual = primero;
+  node * cubeta = NULL;
+
+  while(actual !=NULL){
+    cubeta = actual->prev;
+    actual->prev = actual->next;
+    actual->next = cubeta;
+    actual = actual ->prev;
+  }
+ 
+}
 
 /* ----------  FIN RESPUESTA:  --------------- */
 
